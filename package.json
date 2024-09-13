@@ -15,6 +15,7 @@
     "@mui/icons-material": "^6.1.0",
     "@mui/material": "^6.1.0",
     "@neshan-maps-platform/mapbox-gl": "^1.1.3",
+    "@neshan-maps-platform/mapbox-gl-react": "^1.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
