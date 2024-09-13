@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Button } from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 import DriverCard from "../components/DriverCard";
 import BackButton from "../components/BackButton";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { useLocation } from "../context/LocationContext";
 
 const DriverPage: React.FC = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
   const { origin, destination, setOrigin, setDestination } = useLocation();
   const [selectedDriver, setSelectedDriver] = useState(persianDrivers[0]);
 
@@ -28,7 +29,7 @@ const DriverPage: React.FC = () => {
   return (
     <Box sx={{ position: "relative", height: "100vh" }}>
       {/* Back Button */}
-      <Box sx={{ position: "absolute", top: "10px", left: "30px", zIndex: 15 }}>
+      <Box sx={{ position: "absolute", top: "20px", left: "30px", zIndex: 15 }}>
         <BackButton targetPath={"/directions"} text="بازگشت" />
       </Box>
 
@@ -75,7 +76,14 @@ const DriverPage: React.FC = () => {
           variant="contained"
           onClick={handleEndRide}
           fullWidth
-          sx={{ mt: 2 }}
+          sx={{
+            mt: 2,
+            backgroundColor: theme.palette.primary.main,
+            color: "#fff",
+            "&:hover": {
+              backgroundColor: theme.palette.primary.dark,
+            },
+          }}
         >
           پایان سفر
         </Button>

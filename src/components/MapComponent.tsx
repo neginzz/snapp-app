@@ -39,7 +39,7 @@ const MapComponent = ({
         center: [origin.lng, origin.lat],
         mapKey: webApiKey,
         mapTypeControllerOptions: {
-          show: true,
+          show: false,
           position: "top-left",
         },
       }) as unknown as mapboxgl.Map;

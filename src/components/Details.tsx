@@ -1,6 +1,6 @@
 // src/components/Details.tsx
 
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import AdsClickIcon from "@mui/icons-material/AdsClick";
 
 interface DetailsProps {
@@ -26,7 +26,7 @@ const Details = ({
       backgroundColor: "rgba(240, 240, 240, 0.8)",
       borderRadius: 1,
       fontSize: { xs: "0.75rem", sm: "0.85rem" },
-      border: isSelected ? "2px solid blue" : "2px solid transparent",
+      border: isSelected ? "2px solid #1976d2" : "2px solid transparent",
       cursor: "pointer",
       "&:hover": { border: "2px solid lightblue" },
       textAlign: "right",
@@ -42,10 +42,10 @@ const Details = ({
     {location ? (
       <>
         <Typography>
-          <strong>lat:</strong> {location.lat}
+          <strong>lat:</strong> {location.lat.toFixed(5)}
         </Typography>
         <Typography>
-          <strong>lng:</strong> {location.lng}
+          <strong>lng:</strong> {location.lng.toFixed(5)}
         </Typography>
       </>
     ) : (
