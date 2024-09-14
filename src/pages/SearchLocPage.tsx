@@ -1,6 +1,6 @@
 // src/pages/SearchLocPage.tsx
 
-import { Box, Button, Alert } from "@mui/material";
+import { Box, Button, Alert, useTheme } from "@mui/material";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { useNavigate } from "react-router-dom";
 import MapComponent from "../components/MapComponent";
@@ -17,6 +17,7 @@ function SearchLocPage() {
   const [showAlert, setShowAlert] = useState(false);
 
   const navigate = useNavigate();
+  const theme = useTheme();
 
   // User's current loc
   useEffect(() => {
@@ -120,10 +121,10 @@ function SearchLocPage() {
           onClick={handleNavigateToDirections}
           endIcon={<NavigateNextIcon />}
           sx={{
-            backgroundColor: "#1976d2",
+            backgroundColor: theme.palette.primary.main,
             color: "#fff",
             "&:hover": {
-              backgroundColor: "#1565c0",
+              backgroundColor: theme.palette.primary.dark,
             },
           }}
         >
@@ -153,29 +154,37 @@ function SearchLocPage() {
       <Box
         sx={{
           position: "absolute",
-          top: "24px",
-          right: "10px",
+          top: { xs: "0", md: "24px" },
+          right: { xs: 0, md: "10px" },
           zIndex: 10,
           display: "flex",
-          flexDirection: "column",
+          justifyContent: "center",
+          flexDirection: { xs: "row", md: "column" },
           gap: { xs: 1, sm: 2 },
+          width: { xs: "100%", md: "auto" },
           textAlign: "right",
+          backgroundColor: "transparent",
+          p: { xs: 1, md: 0 },
         }}
       >
-        <Details
-          title="مبدا"
-          location={origin}
-          address={origin?.address ?? ""}
-          isSelected={searchTarget === "origin"}
-          onClick={() => setSearchTarget("origin")}
-        />
-        <Details
-          title="مقصد"
-          location={destination}
-          address={destination?.address ?? "هنوز تنظیم نشده"}
-          isSelected={searchTarget === "destination"}
-          onClick={() => setSearchTarget("destination")}
-        />
+        <Box sx={{ flex: 1 }}>
+          <Details
+            title="مبدا"
+            location={origin}
+            address={origin?.address ?? ""}
+            isSelected={searchTarget === "origin"}
+            onClick={() => setSearchTarget("origin")}
+          />
+        </Box>
+        <Box sx={{ flex: 1 }}>
+          <Details
+            title="مقصد"
+            location={destination}
+            address={destination?.address ?? "هنوز تنظیم نشده"}
+            isSelected={searchTarget === "destination"}
+            onClick={() => setSearchTarget("destination")}
+          />
+        </Box>
       </Box>
     </Box>
   );

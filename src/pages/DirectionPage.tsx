@@ -1,6 +1,6 @@
 // src/pages/DirectionPage.tsx
 
-import { Box, Button} from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import BackButton from "../components/BackButton";
@@ -10,7 +10,7 @@ import { useLocation } from "../context/LocationContext";
 function DirectionPage() {
   const { origin, destination } = useLocation(); // context
   const navigate = useNavigate();
-
+  const theme = useTheme();
   const handleNavigateToDriver = () => {
     navigate("/loading");
   };
@@ -18,7 +18,7 @@ function DirectionPage() {
   return (
     <Box sx={{ position: "relative", height: "100vh" }}>
       {/* Back Button */}
-      <Box sx={{ position: "absolute", top: "10px", left: "30px", zIndex: 15 }}>
+      <Box sx={{ position: "absolute", top: "20px", left: "30px", zIndex: 15 }}>
         <BackButton targetPath="/" text="ویرایش مکان ها" />
       </Box>
 
@@ -26,7 +26,6 @@ function DirectionPage() {
       {origin && destination && (
         <DirectionMap origin={origin} destination={destination} />
       )}
-
 
       {/* Button to driver */}
       <Box
@@ -45,10 +44,10 @@ function DirectionPage() {
           onClick={handleNavigateToDriver}
           endIcon={<NavigateNextIcon />}
           sx={{
-            backgroundColor: "#1976d2",
+            backgroundColor: theme.palette.primary.main,
             color: "#fff",
             "&:hover": {
-              backgroundColor: "#1565c0",
+              backgroundColor: theme.palette.primary.dark,
             },
           }}
         >

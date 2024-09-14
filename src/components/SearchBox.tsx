@@ -14,7 +14,6 @@ interface SearchBoxProps {
 const SearchBox = ({ onSearchSelect, label }: SearchBoxProps) => {
   const serviceApiKey = import.meta.env.VITE_SERVICE_API_KEY;
   const [suggestions, setSuggestions] = useState<any[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>("");
 
   // Search API
   const fetchSuggestions = async (value: string) => {
@@ -45,7 +44,6 @@ const SearchBox = ({ onSearchSelect, label }: SearchBoxProps) => {
       freeSolo
       options={suggestions.map((option) => option.title)}
       onInputChange={(event, value) => {
-        setSearchTerm(value);
         fetchSuggestions(value); // as user types
       }}
       onChange={(event, value) => {

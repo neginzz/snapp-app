@@ -1,7 +1,7 @@
 // src/components/BackButton.tsx
 
 import React from "react";
-import { Button } from "@mui/material";
+import { Button, useTheme } from "@mui/material";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +12,7 @@ interface BackButtonProps {
 
 const BackButton: React.FC<BackButtonProps> = ({ targetPath, text }) => {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const handleBackClick = () => {
     navigate(targetPath);
@@ -23,10 +24,10 @@ const BackButton: React.FC<BackButtonProps> = ({ targetPath, text }) => {
       startIcon={<NavigateBeforeIcon />}
       onClick={handleBackClick}
       sx={{
-        backgroundColor: "#1976d2",
+        backgroundColor: theme.palette.primary.main,
         color: "#fff",
         "&:hover": {
-          backgroundColor: "#1565c0",
+          backgroundColor: theme.palette.primary.dark,
         },
       }}
     >

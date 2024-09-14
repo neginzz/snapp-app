@@ -31,7 +31,7 @@ const DirectionMap = ({
         center: [origin.lng, origin.lat],
         mapKey: webApiKey,
         mapTypeControllerOptions: {
-          show: true,
+          show: false,
           position: "top-right",
         },
       }) as unknown as mapboxgl.Map;
