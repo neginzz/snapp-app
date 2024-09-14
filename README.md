@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
+# Snapp App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A ride-booking application using **React**, **TypeScript**, and **Neshan Maps API** to search locations, get directions, and assign drivers.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search for origin and destination locations.
+- Get directions between locations using Neshan Maps.
+- View a loading screen and assigned driver information.
+- State management for locations using **React Context**.
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React** with **TypeScript**
+- **MUI** for UI components
+- **Neshan Maps API** for map and direction functionalities
+- **React Router** for navigation
+- **React Context** for location state management
+- **Vite** for development and build
 
-- Configure the top-level `parserOptions` property like this:
+## Project Structure
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **src/**: Main source folder
+  - **assets/**: Static data such as drivers
+  - **components/**: Reusable components (Map, DriverCard, etc.)
+  - **context/**: Location context for managing origin and destination
+  - **pages/**: The app's main pages (SearchLocPage, DirectionPage, etc.)
+  - **App.tsx**: Main application file
+  - **main.tsx**: Application entry point
+  - **theme.ts**: MUI theme customization
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Browser Compatibility
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- It is recommended to run this application on **Microsoft Edge** for better handling of user location access.
