@@ -1,6 +1,6 @@
 // src/components/Details.tsx
 
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import AdsClickIcon from "@mui/icons-material/AdsClick";
 
 interface DetailsProps {

@@ -154,17 +154,17 @@ function SearchLocPage() {
       <Box
         sx={{
           position: "absolute",
-          top: { xs: "0", md: "24px" }, // Move to the top for mobile
-          right: { xs: 0, md: "10px" }, // Align right for desktop, full width on mobile
+          top: { xs: "0", md: "24px" },
+          right: { xs: 0, md: "10px" },
           zIndex: 10,
           display: "flex",
           justifyContent: "center",
-          flexDirection: { xs: "row", md: "column" }, // Horizontal on mobile, vertical on desktop
+          flexDirection: { xs: "row", md: "column" },
           gap: { xs: 1, sm: 2 },
-          width: { xs: "100%", md: "auto" }, // Full width on mobile, auto on desktop
+          width: { xs: "100%", md: "auto" },
           textAlign: "right",
-          backgroundColor: "transparent", // Add background for better visibility in mobile
-          p: { xs: 1, md: 0 }, // Padding in mobile for better spacing
+          backgroundColor: "transparent",
+          p: { xs: 1, md: 0 },
         }}
       >
         <Box sx={{ flex: 1 }}>
